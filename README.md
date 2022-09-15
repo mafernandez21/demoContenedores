@@ -1,6 +1,6 @@
 # Fundamentos de Cloud Computing - AWS
 
-Este material complementa la clases del módulo 6, donde se vió el uso de contenedores, ECR, ECS
+Este material complementa la clases del módulo 6, donde se vió el uso de contenedores, ECR y ECS
 
 ## Links útiles
 
