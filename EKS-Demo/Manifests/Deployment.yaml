@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: fortune-teller-ns
+  name: fortune-teller
+  labels:
+    name: fortune-teller
+    app: fortune-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: fortune-teller-pod
+      app: fortune-app
+  template:
+    metadata:
+      name: fortune-teller-pod
+      labels:
+        name: fortune-teller-pod
+        app: fortune-app
+    spec:
+      containers:
+      - name: fortune-app
+        image: 140370616192.dkr.ecr.us-east-1.amazonaws.com/fortune-teller:eks-v1
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 3000
